@@ -45,6 +45,9 @@ function App({ signOut, user }) {
           </Text>
           <button onClick={signOut}>Sign out</button>
         </header>
+        <div className="title">
+        <Text  id="title-text"  fontSize={'28px'} fontStyle={'italic'} fontFamily={'cursive'}> Book An Appoinment </Text>
+        </div>
         <div className="container" id="main-container">
           <div id="input-field">
             <div className="chat-main-div">
@@ -74,6 +77,8 @@ function App({ signOut, user }) {
             <Text width={"100%"}> </Text>
           </div>
         </div>
+        <Divider label=" Footer" orientation="horizontal" />
+        <footer></footer>
       </div>
     </>
   );

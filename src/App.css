@@ -1,5 +1,5 @@
 body {
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-family: cursive;
 }
 .wrapper {
   padding: 0.5rem;
@@ -11,6 +11,14 @@ body {
   display: flex;
   padding: 1rem;
   justify-content: space-between;
+
+}
+#title-text{
+  max-width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
 }
 #main-container {
   display: flex;
