@@ -1,38 +1,106 @@
-.App {
-  text-align: center;
+body {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.wrapper {
+  padding: 0.5rem;
+  background: url(https://th.bing.com/th/id/R.4dced173bc6ef911b13c9f8f6a88740c?rik=WuVo1NW1iVkLNw&pid=ImgRaw&r=0);
+  background-repeat: no-repeat;
+  background-position: center;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header {
   display: flex;
-  flex-direction: column;
+  padding: 1rem;
+  justify-content: space-between;
+}
+#main-container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  padding: 1rem 2rem;
+}
+
+#input-field {
+  width: 60%;
+  padding: 0rem 1rem;
+}
+
+.chat-main-div {
+  width: 100%;
+}
+
+.chat-div {
+  padding: 1rem;
+  height: 40rem;
+  overflow-y: auto;
+}
+
+.container-avatar {
+  border: 2px solid #dedede;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  padding: 0rem 0.25rem;
+  margin: 10px 0;
+  display: flex;
   align-items: center;
+}
+
+.container-para {
+  padding: 0.25rem;
+}
+/* Darker chat container */
+.darker {
+  border-color: #ccc;
+  background-color: #ddd;
+}
+
+/* Clear floats */
+.container-avatar::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Style images */
+.container-avatar img {
+  float: left;
+  max-width: 40px;
+  margin-right: 1rem;
+  border-radius: 50%;
+}
+
+/* Style the right image */
+.container-avatar img.right {
+  float: right;
+  margin-left: 20px;
+  margin-right: 0;
+}
+/* Style the right image */
+.container-avatar p.right {
+  float: right;
+  margin-left: 20px;
+  margin-right: 0;
+}
+/* Style time text */
+.time-right {
+  float: right;
+  color: #aaa;
+}
+
+/* Style time text */
+.time-left {
+  float: left;
+  color: #999;
+}
+
+#chatbot-props {
+  width: 100%;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.history {
+  width: auto;
+  padding: 1rem;
+  max-height: 70vh;
 }
