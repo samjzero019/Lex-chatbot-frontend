@@ -13,15 +13,20 @@ import "./App.css";
 function App({ signOut, user }) {
   const [input, setInput] = useState("");
   const [history, setHistory] = useState([]);
-
   const handleSend = async (e) => {
     e.preventDefault();
-    const response = await Interactions.send("BookApointment", input);
-    const message = response.messages[0].content;
-    if (message) {
-      setHistory([...history, input, message]);
+    if (input.length > 1) {
+      const response = await Interactions.send("BookApointment", input);
+      const message = response.messages[0].content;
+      if (message) {
+        setHistory([...history, input, message]);
+      }
+      document.getElementById("chatbot-props").value = "";
+      setInput("");
+      console.log(message);
+    } else {
+      alert("Please Enter interactive line");
     }
-    console.log(message);
   };
   const botImage =
     "https://png.pngtree.com/png-vector/20230304/ourmid/pngtree-head-ninja-robot-avatar-profile-logo-vector-png-image_6633234.png";
@@ -38,7 +43,7 @@ function App({ signOut, user }) {
             fontSize="1em"
             fontStyle="normal"
             textDecoration="none"
-            padding={""}
+            padding={"0rem 0rem 0rem 1.5rem"}
             width="40vw"
           >
             Welcome {user.attributes.email}
@@ -46,7 +51,15 @@ function App({ signOut, user }) {
           <button onClick={signOut}>Sign out</button>
         </header>
         <div className="title">
-        <Text  id="title-text"  fontSize={'28px'} fontStyle={'italic'} fontFamily={'cursive'}> Book An Appoinment </Text>
+          <Text
+            id="title-text"
+            fontSize={"28px"}
+            fontStyle={"italic"}
+            fontFamily={"cursive"}
+          >
+            {" "}
+            Book An Appoinment{" "}
+          </Text>
         </div>
         <div className="container" id="main-container">
           <div id="input-field">
@@ -58,17 +71,17 @@ function App({ signOut, user }) {
                 outerEndComponent={<Button onClick={handleSend}>Send</Button>}
               />
             </div>
-            <div className="chat-div">
+            <div className="chat-div" id="chat-div-id">
               {history.map((itm, index) => (
-                <>
-                  <div
-                    className="container-avatar"
-                    style={{ flexDirection: index % 2 ? "row-reverse" : "" }}
-                  >
-                    <img src={index % 2 ? botImage : userImage} alt="Avatar" />
-                    <p className="container-para">{itm}</p>
-                  </div>
-                </>
+                <div
+                  key={index}
+                  id={`h${index}`}
+                  className="container-avatar"
+                  style={{ flexDirection: index % 2 ? "row-reverse" : "" }}
+                >
+                  <img src={index % 2 ? botImage : userImage} alt="Avatar" />
+                  <p className="container-para">{itm}</p>
+                </div>
               ))}
             </div>
           </div>
@@ -77,8 +90,8 @@ function App({ signOut, user }) {
             <Text width={"100%"}> </Text>
           </div>
         </div>
-        <Divider label=" Footer" orientation="horizontal" />
-        <footer></footer>
+        {/* <Divider label=" Footer" orientation="horizontal" />
+        <footer></footer> */}
       </div>
     </>
   );
